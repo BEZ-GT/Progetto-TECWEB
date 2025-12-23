@@ -5,12 +5,15 @@
 
 /*Variabili globali*/
 :root{
-    --contentbgcolor: rgb(25, 25, 25);      /* quasi nero / antracite */
+    --contentbgcolor: rgb(19, 19, 19);      /* quasi nero / antracite */
     --linkcolor: rgb(25, 25, 25);    /* crema molto chiaro */
     --visitedlinkcolor: rgb(25, 25, 25);    /* crema molto chiaro */
-    --navcolor: rgb(210, 98, 27);     /* arancione/bruno intenso */
-    --txtcolor: rgb(255, 255, 255);   /* crema molto chiaro */
-    --eventbgcolor: rgb(97, 84, 68);      /* marrone scuro/grigio caldo */
+    --primarycolor: rgb(210, 98, 27);     /* arancione/bruno intenso */
+    --secondarycolor: rgb(209, 136, 92);
+    --buttonfocuscolor: rgb(25, 25, 25);
+    --txtcolorlight: rgb(255, 255, 255);   /* crema molto chiaro */
+    --txtcolordark: rgb(0,0,0);            /* nero */
+    --eventbgcolor: rgb(30, 30, 30);      /* grigio scuro */
 }
 
 html, body{
@@ -19,14 +22,38 @@ html, body{
     line-height: 1.5em;
 }
 
-html{
-    background-image: linear-gradient(to top left, rgb(0 0 0/100%), transparent); /*Gradiente che parte dal colore 0 0 0 e arriva al 100%=bianco (massima luminosita). Lo fa andando verso il basso a destra*/
-}
-
 body{
     background-color: var(--contentbgcolor);
-    color: var(--txtcolor);
+    color: var(--txtcolorlight);
     margin: auto;
+}
+
+
+/*
+========================================
+CLASSI RIUTILIZZABILI
+========================================
+*/
+
+.button {
+    background-color: var(--primarycolor);
+    color: var(--txtcolordark);
+    border: 0 solid var(--buttonfocuscolor);
+    padding: 0.8em 1.5em;
+    font-size: inherit;
+    font-family: inherit;
+    text-decoration: none;
+    transition: 0.15s all;
+}
+
+.button:hover {
+    background-color: var(--secondarycolor);
+    scale: 1.06;
+}
+
+.button:active {
+    background-color: var(--txtcolorlight);
+    transition: none;
 }
 
 /*
@@ -35,27 +62,25 @@ SEZIONE HEADER
 ========================================
 */
 
-header{
-    background-color: var(--navcolor);
+body > header {
+    display: flex;
+    background-color: var(--primarycolor);
+    padding: 1.5em;
 }
 
-header h1{
+body > header h1{
     background-image: url("materiale/images/logosvg");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     text-indent: -9999em; /*Si nasconde il testo ma lo si mette come h1 per il ranking e l'accessibilita*/
-    font-size: 6em;
-    line-height: 1.5em;
+    font-size: 0;
+    line-height: 0;
     float: left;
 }
 
-header nav{
-    margin-top: 2em;
-}
-
 #menu{
-    float: right;
+    margin-left: auto;
     width: auto;
     font-size: 1.3em;
 }
@@ -69,33 +94,163 @@ header nav{
 }
 
 #menu ul{
-    list-style-type: none;
+    display: flex;
+    gap: 1em;
+    list-style: none;
 }
 
 #menu ul li{
-    margin: 1em;
     display: inline;
 }
 
-/*========================================
+#menu ul li a {
+    text-decoration: none;
+}
+
+/*
+========================================
+SEZIONE BREADCRUMB
+========================================
+*/
+
+#breadcrumb{
+    margin-top: 0.8em;
+    margin-left: 1.6em;
+    font-size: 1.1em;
+}
+
+/*
+========================================
 SEZIONE CONTENUTO
 ========================================
 */
 
 main{
-    margin-top: 1em;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    margin-top: 5em;
     background-color: var(--contentbgcolor);
     color: var(--contentxtcolor);
+    margin-left: 8em;
+    margin-right: 8em;
 }
 
 main h2{
     text-align: center;
+    font-size: 3em;
     line-height: 1.5em;
 }
 
 main h3{
     text-align: center;
+    font-size: 1.65em;
     line-height: 1.5em;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
+}
+
+main hr {
+    margin-top: 1em;
+    margin-bottom: 4em;
+    width: 100%;
+}
+
+main ul {
+    list-style: none;
+}
+
+.event-card {
+    background-color: var(--eventbgcolor);
+    position: relative;
+    display: flex;
+    margin-bottom: 3em;
+    height: auto;
+}
+
+.event-card figure {
+    position: relative;
+    width: 40%;
+    font-size: 0;
+}
+
+.event-card figure img {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    display: inline-block;
+}
+
+.event-card section {
+    position: relative;
+    width: 60%;
+    padding: 3em;
+    font-size: 1em;
+}
+
+.event-card section header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2.5em;
+}
+
+.event-card section header h4 {
+    font-size: 1.5em;
+}
+
+.event-card section p {
+    margin-bottom: 2em
+}
+
+.event-card section a {
+    position: absolute;
+    right: 3em;
+    bottom: 3em;
+}
+
+.event-price {
+    font-size: 1.2em;
+    color: var(--primarycolor);
+}
+
+/*
+========================================
+SEZIONE "CHI SIAMO"
+========================================
+*/
+
+#who-title {
+    margin-top: 2.3em;
+}
+
+#paper-sheet {
+    height: 50em;
+    width: auto;
+}
+
+#who-section {
+
+    position: relative;;
+    margin-top: 2.5em;
+}
+
+#who-text {
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+   text-align: justify;
+   color: var(--txtcolordark);
+}
+
+/*
+========================================
+FOOTER
+========================================
+*/
+
+body > footer {
+    margin-top: 2em;
+    padding: 0.5em;
 }
