@@ -65,18 +65,19 @@ SEZIONE HEADER
 body > header {
     display: flex;
     background-color: var(--primarycolor);
-    padding: 1.5em;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
 }
 
 body > header h1{
-    background-image: url("materiale/images/logosvg");
+    background-image: url("../assets/images/logo.png");
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center;
     text-indent: -9999em; /*Si nasconde il testo ma lo si mette come h1 per il ranking e l'accessibilita*/
-    font-size: 0;
-    line-height: 0;
-    float: left;
+    width: 10em;
+    height: 2em;
 }
 
 #menu{
