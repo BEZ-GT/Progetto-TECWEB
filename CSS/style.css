@@ -8,7 +8,7 @@
     --contentbgcolor: rgb(19, 19, 19);      /* quasi nero / antracite */
     --linkcolor: rgb(25, 25, 25);    /* crema molto chiaro */
     --visitedlinkcolor: rgb(25, 25, 25);    /* crema molto chiaro */
-    --primarycolor: rgb(210, 98, 27);     /* arancione/bruno intenso */
+    --primarycolor: rgb(231, 101, 0);     /* arancione/bruno intenso */
     --secondarycolor: rgb(209, 136, 92);
     --buttonfocuscolor: rgb(25, 25, 25);
     --txtcolorlight: rgb(255, 255, 255);   /* crema molto chiaro */
@@ -92,6 +92,10 @@ body > header h1{
 
 #menu a:visited{
     color: var(--visitedcolor);
+}
+
+#currentLink {
+    text-decoration: underline;
 }
 
 #menu ul{
@@ -183,7 +187,13 @@ main ul {
     display: inline-block;
 }
 
+.event-card.is-unavailable figure img {
+    filter: grayscale(1);
+}
+
 .event-card section {
+    display: flex;
+    flex-direction: column;
     position: relative;
     width: 60%;
     padding: 3em;
@@ -200,20 +210,24 @@ main ul {
     font-size: 1.5em;
 }
 
-.event-card section p {
+.event-description {
     margin-bottom: 2em
 }
 
-.event-card section a {
-    position: absolute;
-    right: 3em;
-    bottom: 3em;
+.event-cta {
+    margin-top: auto;
+    margin-left: auto;
+}
+
+p.event-cta {
+    font-size: 1.3em;
 }
 
 .event-price {
     font-size: 1.2em;
     color: var(--primarycolor);
 }
+
 
 /*
 ========================================
