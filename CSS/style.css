@@ -259,6 +259,19 @@ SEZIONE "CHI SIAMO"
    color: var(--txtcolordark);
 }
 
+#gladiator-left {
+    position:absolute;
+    scale: 0.5;
+    bottom: 40%;
+    right: 80%;
+}
+
+#gladiator-right {
+    position:absolute;
+    left: 60%;
+    scale: 0.5;
+}
+
 /*
 ========================================
 FOOTER
